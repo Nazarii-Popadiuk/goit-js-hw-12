@@ -13,6 +13,7 @@ body {
   padding: 36px 156px;
   font-family: 'Montserrat', sans-serif;
 }
+
 form {
   display: flex;
   margin-left: 378px;
@@ -42,7 +43,7 @@ input:focus {
   border: 1px solid #4e75ff;
   color: #2e2f42;
 }
-button {
+.search {
   font-weight: 500;
   font-size: 16px;
 
@@ -76,12 +77,8 @@ button:hover {
   letter-spacing: 0.04em;
   color: #2e2f42;
 }
-.hidden {
-  display: none;
-}
 .gallery {
   width: 1128px;
-  height: 200px;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
@@ -96,4 +93,33 @@ button:hover {
   gap: 28px;
   justify-content: center;
   text-align: center;
+}
+.container {
+  display: flex;
+  padding-left: 501px;
+  padding-top: 32px;
+}
+.load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border: none;
+  margin-bottom: 44px;
+}
+.hidden {
+  display: none;
 }

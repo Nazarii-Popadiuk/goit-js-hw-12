@@ -14,12 +14,14 @@
     <label>
       <input type="text" name="search-text" placeholder="Search images..." required>
     </label>
-    <button type="submit">Search</button>
+    <button type="submit" class="search">Search</button>
   </form>
 
   <span class="loader hidden">Loading images, please wait...</span>
   <ul class="gallery"></ul>
-
+  <div class="container">
+    <button type="submit" class="load-more hidden">Load more</button>
+  </div>
   <script type="module" src="./main.js">
   </script>
 </body>
