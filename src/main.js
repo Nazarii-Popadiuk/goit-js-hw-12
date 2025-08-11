@@ -38,7 +38,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
         const data = await getImagesByQuery(query, page);
-        const { hits, totalHits } = data;
+        const { totalHits } = data;
         if (data.hits.length === 0) {
             izitoast.error({
                 title: 'No results',
@@ -49,7 +49,16 @@ form.addEventListener('submit', async (e) => {
         }
         createGallery(data.hits);
         totalPages = Math.ceil(totalHits / 15);
+        if (totalPages === 1) {
+            hideLoadMoreButton();
+            izitoast.info({
+                message: "We're sorry, but you've reached the end of search results.",
+                position: "topRight",
+            });
+        }
         if (page < totalPages) {
+
+        
             showLoadMoreButton();
         };
     } catch (error) {
@@ -67,21 +76,22 @@ form.addEventListener('submit', async (e) => {
 
 loadMoreBtn.addEventListener('click', async (e) => {
     page += 1;
+    hideLoadMoreButton();
     showLoader();
 
     try {
         const data = await getImagesByQuery(query, page);
         const { hits } = data;
-
         createGallery(hits);
         smoothScroll();
 
-        if (page > totalPages) {
+        if (page === totalPages) {
             hideLoadMoreButton();
             izitoast.info({
                 message: "We're sorry, but you've reached the end of search results.",
                 position: "topRight",
             })
+            hideLoader();
         } 
     } catch (error) {
         izitoast.error({
