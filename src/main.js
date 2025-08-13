@@ -56,11 +56,6 @@ form.addEventListener('submit', async (e) => {
                 position: "topRight",
             });
         }
-        if (page < totalPages) {
-
-        
-            showLoadMoreButton();
-        };
     } catch (error) {
         izitoast.error({
             title: 'Error',
@@ -93,6 +88,11 @@ loadMoreBtn.addEventListener('click', async (e) => {
             })
             hideLoader();
         } 
+                if (page < totalPages) {
+
+        
+            showLoadMoreButton();
+        };
     } catch (error) {
         izitoast.error({
             title: 'Error',
