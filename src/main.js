@@ -56,6 +56,9 @@ form.addEventListener('submit', async (e) => {
                 position: "topRight",
             });
         }
+        if (totalPages > 1) {
+            showLoadMoreButton();
+        };
     } catch (error) {
         izitoast.error({
             title: 'Error',
